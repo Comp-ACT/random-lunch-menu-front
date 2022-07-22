@@ -4,5 +4,8 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['airbnb'],
+  extends: ['eslint:recommended', 'airbnb'],
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+  },
 };
