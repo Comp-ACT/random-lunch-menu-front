@@ -12,10 +12,10 @@ function Home() {
       height: '100vh',
     }}
     >
-      <div style={{ width: '90%' }}>
+      <div style={{ width: '85%' }}>
         <Roulette />
       </div>
-      <div style={{ width: '10%' }}>
+      <div style={{ width: '15%' }}>
         <UserInformation />
         <RoomList />
       </div>
