@@ -7,5 +7,6 @@ module.exports = {
   extends: ['eslint:recommended', 'airbnb'],
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'react/button-has-type': 'off',
   },
 };
