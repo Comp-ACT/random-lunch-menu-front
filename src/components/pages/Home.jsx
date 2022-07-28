@@ -1,6 +1,5 @@
 import Roulette from '../common/Roulette';
-import UserInformation from '../common/UserInformation';
-import RoomList from '../common/RoomList';
+import SideBar from '../common/sidebar/SideBar';
 
 function Home() {
   return (
@@ -16,8 +15,7 @@ function Home() {
         <Roulette />
       </div>
       <div style={{ width: '15%' }}>
-        <UserInformation />
-        <RoomList />
+        <SideBar />
       </div>
     </div>
   );
