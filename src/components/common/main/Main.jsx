@@ -1,17 +1,19 @@
-import Colors from '../../assets/colors/index';
+import Colors from '../../../assets/colors';
+import Roulette from './Roulette';
+import RestaurantList from './RestaurantList';
 
-function Roulette() {
+function Main() {
   return (
     <div style={{
       background: Colors.OLDLACE, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center',
     }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-        <div>roulette</div>
-        <div>restaurant list</div>
+        <Roulette />
+        <RestaurantList />
       </div>
     </div>
   );
 }
 
-export default Roulette;
+export default Main;
