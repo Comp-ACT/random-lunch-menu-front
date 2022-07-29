@@ -5,17 +5,24 @@ function Home() {
   return (
     <div style={{
       display: 'flex',
-      minWidth: 1440,
-      minHeight: 720,
       width: '100vw',
       height: '100vh',
+      justifyContent: 'center',
     }}
     >
-      <div style={{ width: '85%' }}>
-        <Main />
-      </div>
-      <div style={{ width: '15%' }}>
-        <SideBar />
+      <div style={{
+        display: 'flex',
+        width: 1400,
+        height: '100vh',
+        minHeight: 720,
+      }}
+      >
+        <div style={{ width: '80%' }}>
+          <Main />
+        </div>
+        <div style={{ width: '20%' }}>
+          <SideBar />
+        </div>
       </div>
     </div>
   );
