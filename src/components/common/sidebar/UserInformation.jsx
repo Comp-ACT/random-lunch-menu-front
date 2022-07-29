@@ -1,8 +1,6 @@
-import Colors from '../../assets/colors';
-
 function UserInformation() {
   return (
-    <div style={{ background: Colors.CORAL, height: '50%', textAlign: 'center' }}>
+    <div style={{ height: '40%', textAlign: 'center' }}>
       <div
         id="user-image"
         style={{
@@ -17,11 +15,8 @@ function UserInformation() {
         <p> </p>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <button style={{ marginTop: '2em' }}>
+        <button style={{ marginTop: '3em' }}>
           login button
-        </button>
-        <button style={{ marginTop: '2em' }}>
-          register button
         </button>
       </div>
     </div>
