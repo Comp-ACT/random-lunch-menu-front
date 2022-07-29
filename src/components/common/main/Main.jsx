@@ -1,6 +1,6 @@
 import Colors from '../../../assets/colors';
 import Roulette from './Roulette';
-import RestaurantList from './RestaurantList';
+import RestaurantList from './restaurant-list/RestaurantList';
 
 function Main() {
   return (
