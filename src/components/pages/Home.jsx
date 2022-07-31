@@ -12,9 +12,8 @@ function Home() {
     >
       <div style={{
         display: 'flex',
-        width: 1400,
-        height: '100vh',
-        minHeight: 720,
+        minWidth: window.outerWidth,
+        minHeight: window.innerHeight,
       }}
       >
         <div style={{ width: '80%' }}>
