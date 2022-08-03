@@ -8,12 +8,30 @@ function RestaurantList() {
   return (
     <div style={{
       height: '60%',
+      width: 400,
     }}
     >
-      <div>
-        <input type="text" />
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+      >
+        <input
+          type="text"
+          style={{
+            width: 300,
+          }}
+        />
       </div>
-      <div style={{ overflow: 'scroll', height: '100%' }}>
+      <div style={{
+        overflow: 'scroll',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+        marginTop: 20,
+      }}
+      >
         {tempHtml}
       </div>
     </div>
