@@ -1,4 +1,5 @@
 import Restaurant from './Restaurant';
+import RestaurantInput from '../../restaurant-input/RestaurantInput';
 
 function RestaurantList() {
   const tempList = ['텍스트길이가 길어지면 어떻게 처리하는지 확인', '멍', '짹', '삐약', '야옹', '멍', '짹', '삐약', '야옹', '멍', '짹', '삐약', '야옹', '멍', '짹', '삐약'];
@@ -16,12 +17,7 @@ function RestaurantList() {
         justifyContent: 'center',
       }}
       >
-        <input
-          type="text"
-          style={{
-            width: 300,
-          }}
-        />
+        <RestaurantInput width={300} />
       </div>
       <div style={{
         overflow: 'scroll',
