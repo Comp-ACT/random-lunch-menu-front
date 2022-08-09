@@ -1,9 +1,11 @@
-import * as PropTypes from 'prop-types';
 import Restaurant from './Restaurant';
 import RestaurantInput from './restaurant-input/RestaurantInput';
+import useRestaurantList from '../../../../hooks/useRestaurantList';
 
-function RestaurantList({ restaurantList }) {
-  const tempHtml = restaurantList.map((temp) => (
+function RestaurantList() {
+  const [restaurantList, addRestaurantList] = useRestaurantList([]);
+
+  const restaurants = restaurantList.map((temp) => (
     <Restaurant name={temp} />
   ));
   return (
@@ -17,7 +19,7 @@ function RestaurantList({ restaurantList }) {
         justifyContent: 'center',
       }}
       >
-        <RestaurantInput width={300} />
+        <RestaurantInput width={300} setRestaurantList={addRestaurantList} />
       </div>
       <div style={{
         overflow: 'scroll',
@@ -28,14 +30,10 @@ function RestaurantList({ restaurantList }) {
         marginTop: 20,
       }}
       >
-        {tempHtml}
+        {restaurants}
       </div>
     </div>
   );
 }
-
-RestaurantList.propTypes = {
-  restaurantList: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default RestaurantList;
