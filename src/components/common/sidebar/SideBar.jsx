@@ -1,6 +1,6 @@
 import Colors from '../../../assets/colors';
 import UserInformation from './UserInformation';
-import RoomList from './RoomList';
+import RoomList from './room-list/RoomList';
 
 function SideBar() {
   return (
