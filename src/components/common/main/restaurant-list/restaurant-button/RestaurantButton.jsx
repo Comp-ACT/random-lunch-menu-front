@@ -1,4 +1,4 @@
-import * as ProtoType from 'prop-types';
+import * as PropTypes from 'prop-types';
 
 function RestaurantButton({ children }) {
   return (
@@ -13,7 +13,7 @@ function RestaurantButton({ children }) {
 }
 
 RestaurantButton.propTypes = {
-  children: ProtoType.string.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 export default RestaurantButton;

@@ -1,4 +1,4 @@
-import * as ProtoType from 'prop-types';
+import * as PropTypes from 'prop-types';
 
 function RestaurantInput({ width }) {
   return (
@@ -16,7 +16,7 @@ function RestaurantInput({ width }) {
 }
 
 RestaurantInput.propTypes = {
-  width: ProtoType.number.isRequired,
+  width: PropTypes.number.isRequired,
 };
 
 export default RestaurantInput;

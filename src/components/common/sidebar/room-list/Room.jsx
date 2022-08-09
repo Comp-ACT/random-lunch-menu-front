@@ -1,4 +1,4 @@
-import * as ProtoType from 'prop-types';
+import * as PropTypes from 'prop-types';
 
 function Room({ name }) {
   return (
@@ -13,7 +13,7 @@ function Room({ name }) {
 }
 
 Room.propTypes = {
-  name: ProtoType.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default Room;

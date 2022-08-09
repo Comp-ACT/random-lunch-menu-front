@@ -1,9 +1,9 @@
+import * as PropTypes from 'prop-types';
 import Restaurant from './Restaurant';
 import RestaurantInput from './restaurant-input/RestaurantInput';
 
-function RestaurantList() {
-  const tempList = ['텍스트길이가 길어지면 어떻게 처리하는지 확인', '멍', '짹', '삐약', '야옹', '멍', '짹', '삐약', '야옹', '멍', '짹', '삐약', '야옹', '멍', '짹', '삐약'];
-  const tempHtml = tempList.map((temp) => (
+function RestaurantList({ restaurantList }) {
+  const tempHtml = restaurantList.map((temp) => (
     <Restaurant name={temp} />
   ));
   return (
@@ -33,5 +33,9 @@ function RestaurantList() {
     </div>
   );
 }
+
+RestaurantList.propTypes = {
+  restaurantList: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default RestaurantList;

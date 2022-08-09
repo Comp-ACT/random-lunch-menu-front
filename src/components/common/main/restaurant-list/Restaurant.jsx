@@ -1,4 +1,4 @@
-import * as ProtoType from 'prop-types';
+import * as PropTypes from 'prop-types';
 import Colors from '../../../../assets/colors';
 import RestaurantButton from './restaurant-button/RestaurantButton';
 
@@ -27,7 +27,7 @@ function Restaurant({ name }) {
 }
 
 Restaurant.propTypes = {
-  name: ProtoType.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default Restaurant;
