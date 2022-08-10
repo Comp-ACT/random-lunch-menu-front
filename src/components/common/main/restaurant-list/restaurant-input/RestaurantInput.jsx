@@ -1,8 +1,9 @@
 import * as PropTypes from 'prop-types';
 
 function RestaurantInput({ width, setRestaurantList }) {
-  function onKeyPressed(e) {
-    if (e.key === 'Enter') {
+  function onKeyDown(e) {
+    if (e.key === 'Enter' && e.nativeEvent.isComposing === false) {
+      e.preventDefault();
       setRestaurantList(e);
       e.target.value = '';
     }
@@ -10,7 +11,7 @@ function RestaurantInput({ width, setRestaurantList }) {
   return (
     <input
       type="text"
-      onKeyDown={onKeyPressed}
+      onKeyDown={onKeyDown}
       style={{
         width,
         textAlign: 'center',

@@ -2,11 +2,13 @@ import * as PropTypes from 'prop-types';
 import Colors from '../../../../assets/colors';
 import RestaurantButton from './restaurant-button/RestaurantButton';
 
-function Restaurant({ name }) {
+function Restaurant({ restaurant }) {
   return (
-    <div style={{
-      display: 'flex', marginTop: 30, textAlign: 'center', justifyContent: 'space-between', width: 300, background: Colors.CORAL,
-    }}
+    <div
+      key={restaurant.name}
+      style={{
+        display: 'flex', marginTop: 30, textAlign: 'center', justifyContent: 'space-between', width: 300, background: Colors.CORAL,
+      }}
     >
       <RestaurantButton>-</RestaurantButton>
       <div style={{
@@ -19,7 +21,7 @@ function Restaurant({ name }) {
         justifyContent: 'center',
       }}
       >
-        {name}
+        {restaurant.restaurantName}
       </div>
       <RestaurantButton>+</RestaurantButton>
     </div>
@@ -27,7 +29,12 @@ function Restaurant({ name }) {
 }
 
 Restaurant.propTypes = {
-  name: PropTypes.string.isRequired,
+  restaurant: PropTypes.objectOf({
+    id: PropTypes.string,
+    restaurantName: PropTypes.string,
+    agreeCount: PropTypes.number,
+    disagreeCount: PropTypes.number,
+  }).isRequired,
 };
 
 export default Restaurant;

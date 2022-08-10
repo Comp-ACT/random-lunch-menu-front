@@ -4,7 +4,12 @@ function useRestaurantList(initialForm) {
   const [restaurantList, setRestaurantList] = useState(initialForm);
 
   function addRestaurant(e) {
-    const copiedRestaurantList = [...restaurantList, e.target.value];
+    const copiedRestaurantList = [...restaurantList, {
+      id: '1234',
+      restaurantName: e.target.value,
+      agreeCount: 3,
+      disagreeCount: 1,
+    }];
     setRestaurantList(copiedRestaurantList);
   }
 

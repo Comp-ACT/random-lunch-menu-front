@@ -5,8 +5,8 @@ import useRestaurantList from '../../../../hooks/useRestaurantList';
 function RestaurantList() {
   const [restaurantList, addRestaurantList] = useRestaurantList([]);
 
-  const restaurants = restaurantList.map((temp) => (
-    <Restaurant name={temp} />
+  const restaurants = restaurantList.map((restaurant) => (
+    <Restaurant key={restaurant.id} restaurant={restaurant} />
   ));
   return (
     <div style={{
