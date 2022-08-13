@@ -1,7 +1,17 @@
 import * as PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import Colors from '../../../assets/colors';
 
 function Modal({ closeModal, children }) {
+  useEffect(() => {
+    const close = (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, []);
   return (
     <div
       style={{
