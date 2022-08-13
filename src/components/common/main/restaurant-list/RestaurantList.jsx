@@ -1,5 +1,5 @@
-import Restaurant from './Restaurant';
-import RestaurantInput from './restaurant-input/RestaurantInput';
+import Restaurant from './restaurant/Restaurant';
+import RestaurantListInput from './restaurant-list-input/RestaurantListInput';
 import useRestaurantList from '../../../../hooks/useRestaurantList';
 
 function RestaurantList() {
@@ -19,7 +19,7 @@ function RestaurantList() {
         justifyContent: 'center',
       }}
       >
-        <RestaurantInput width={300} setRestaurantList={addRestaurantList} />
+        <RestaurantListInput width={300} setRestaurantList={addRestaurantList} />
       </div>
       <div style={{
         overflow: 'scroll',

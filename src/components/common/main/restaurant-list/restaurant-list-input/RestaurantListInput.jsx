@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 
-function RestaurantInput({ width, setRestaurantList }) {
+function RestaurantListInput({ width, setRestaurantList }) {
   function onKeyDown(e) {
     if (e.key === 'Enter' && e.nativeEvent.isComposing === false) {
       e.preventDefault();
@@ -23,9 +23,9 @@ function RestaurantInput({ width, setRestaurantList }) {
   );
 }
 
-RestaurantInput.propTypes = {
+RestaurantListInput.propTypes = {
   width: PropTypes.number.isRequired,
   setRestaurantList: PropTypes.func.isRequired,
 };
 
-export default RestaurantInput;
+export default RestaurantListInput;
