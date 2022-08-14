@@ -1,5 +1,5 @@
 import * as PropTypes from 'prop-types';
-import Colors from '../../../../assets/colors';
+import Colors from '../../../../../assets/colors';
 import RestaurantButton from './restaurant-button/RestaurantButton';
 
 function Restaurant({ restaurant }) {
