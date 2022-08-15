@@ -4,7 +4,11 @@ import RoomList from './room-list/RoomList';
 
 function SideBar() {
   return (
-    <div style={{ background: Colors.CORAL, height: '100%' }}>
+    <div style={{
+      background: Colors.OLDLACE,
+      height: '100%',
+    }}
+    >
       <UserInformation />
       <RoomList />
     </div>
