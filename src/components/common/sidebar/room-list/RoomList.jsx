@@ -1,6 +1,5 @@
 import Room from './room/Room';
-import RoomCreationButton from './room-list-button/RoomCreationButton';
-import RoomJoiningButton from './room-list-button/RoomJoiningButton';
+import RoomAdditionButton from './room-list-button/RoomAdditionButton';
 
 function RoomList() {
   const tempList = ['Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴'];
@@ -15,8 +14,7 @@ function RoomList() {
     }}
     >
       <p>방 목록</p>
-      <RoomCreationButton />
-      <RoomJoiningButton />
+      <RoomAdditionButton />
       <div style={{
         overflow: 'scroll',
         height: '80%',
