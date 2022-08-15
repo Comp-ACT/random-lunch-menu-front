@@ -10,16 +10,26 @@ function RoomList() {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      height: '60%',
+      height: '100%',
     }}
     >
-      <p>방 목록</p>
+      <p style={{
+        fontSize: 24,
+        fontWeight: 'bold',
+      }}
+      >
+        방 목록
+      </p>
       <RoomAdditionButton />
       <div style={{
         overflow: 'scroll',
         height: '80%',
         display: 'flex',
         flexDirection: 'column',
+        marginTop: 20,
+        marginBottom: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
       }}
       >
         {tempHtml}

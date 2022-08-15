@@ -1,5 +1,4 @@
 import Colors from '../../../assets/colors';
-import UserInformation from './UserInformation';
 import RoomList from './room-list/RoomList';
 
 function SideBar() {
@@ -9,7 +8,6 @@ function SideBar() {
       height: '100%',
     }}
     >
-      <UserInformation />
       <RoomList />
     </div>
   );

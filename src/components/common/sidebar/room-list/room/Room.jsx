@@ -1,10 +1,20 @@
 import * as PropTypes from 'prop-types';
+import Colors from '../../../../../assets/colors';
 
 function Room({ name }) {
   return (
     <div style={{
+      display: 'flex',
+      flexDirection: 'column',
       textAlign: 'center',
-      marginTop: 30,
+      fontSize: 18,
+      justifyContent: 'center',
+      marginTop: 10,
+      minHeight: 100,
+      borderStyle: 'solid',
+      borderWidth: 2,
+      borderColor: Colors.CORAL,
+      borderRadius: 10,
     }}
     >
       {name}
