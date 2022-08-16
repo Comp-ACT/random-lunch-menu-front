@@ -26,10 +26,8 @@ function Home() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          boxSizing: 'border-box',
-          borderStyle: 'solid',
-          borderWidth: 2,
           minHeight: '8%',
+          maxHeight: '8%',
         }}
         >
           <Header />
