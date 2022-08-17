@@ -1,6 +1,5 @@
 import Room from './room/Room';
-import RoomCreationButton from './room-list-button/RoomCreationButton';
-import RoomJoiningButton from './room-list-button/RoomJoiningButton';
+import RoomAdditionButton from './room-list-button/RoomAdditionButton';
 
 function RoomList() {
   const tempList = ['Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴'];
@@ -11,17 +10,26 @@ function RoomList() {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      height: '60%',
+      height: '100%',
     }}
     >
-      <p>방 목록</p>
-      <RoomCreationButton />
-      <RoomJoiningButton />
+      <p style={{
+        fontSize: 24,
+        fontWeight: 'bold',
+      }}
+      >
+        방 목록
+      </p>
+      <RoomAdditionButton />
       <div style={{
         overflow: 'scroll',
         height: '80%',
         display: 'flex',
         flexDirection: 'column',
+        marginTop: 20,
+        marginBottom: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
       }}
       >
         {tempHtml}

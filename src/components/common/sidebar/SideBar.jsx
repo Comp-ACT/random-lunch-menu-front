@@ -1,11 +1,13 @@
 import Colors from '../../../assets/colors';
-import UserInformation from './UserInformation';
 import RoomList from './room-list/RoomList';
 
 function SideBar() {
   return (
-    <div style={{ background: Colors.CORAL, height: '100%' }}>
-      <UserInformation />
+    <div style={{
+      background: Colors.OLDLACE,
+      height: '100%',
+    }}
+    >
       <RoomList />
     </div>
   );
