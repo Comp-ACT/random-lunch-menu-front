@@ -1,5 +1,5 @@
-import Hamburger from '../../../../assets/images/Hamburger';
-import Person from '../../../../assets/images/Person';
+import Hamburger from '../../../../assets/images/icons/Hamburger';
+import Person from '../../../../assets/images/icons/Person';
 
 function RoomConfigHeader() {
   return (
