@@ -1,4 +1,5 @@
 import RoomConfigHeader from './room-config-header/RoomConfigHeader';
+import StyledText from '../StyledText';
 
 function Header() {
   return (
@@ -13,30 +14,13 @@ function Header() {
           width: '80%',
         }}
       >
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          fontSize: 24,
-          fontWeight: 'bold',
-        }}
-        >
-          점메추
-        </div>
+        <StyledText text="점메추" fontSize={24} fontWeight="bold" />
         <div>
           <RoomConfigHeader />
         </div>
       </div>
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        width: '20%',
-        textAlign: 'right',
-        fontSize: 24,
-      }}
-      >
-        사용자 정보
+      <div style={{ display: 'flex', flexDirection: 'row-reverse', width: '20%' }}>
+        <StyledText text="사용자 정보" fontSize={24} fontWeight="none" />
       </div>
     </div>
   );
