@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as PropTypes from 'prop-types';
+import { css } from '@emotion/react';
 import Colors from '../../../../../assets/colors';
 import RestaurantInformationDialog from '../dialog/RestaurantInformationDialog';
 import Modal from '../../../dialog/modal';
@@ -17,15 +18,15 @@ function Restaurant({ restaurant }) {
       }
       <div
         key={restaurant.name}
-        style={{
+        css={css({
           display: 'flex', marginTop: 30, textAlign: 'center', justifyContent: 'space-between', width: 300, background: Colors.CORAL,
-        }}
+        })}
       >
         <div
           onClick={() => {
             setIsClicked(true);
           }}
-          style={{
+          css={css({
             display: 'flex',
             flexDirection: 'column',
             overflow: 'auto',
@@ -34,7 +35,7 @@ function Restaurant({ restaurant }) {
             height: 50,
             justifyContent: 'center',
             textAlign: 'center',
-          }}
+          })}
         >
           {restaurant.restaurantName}
         </div>
