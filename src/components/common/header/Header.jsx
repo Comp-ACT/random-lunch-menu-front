@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import RoomConfigHeader from './room-config-header/RoomConfigHeader';
 import HeaderText from './header-text/HeaderText';

@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import Main from '../common/main/Main';
 import SideBar from '../common/sidebar/SideBar';

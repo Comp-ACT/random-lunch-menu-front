@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import PropTypes from 'prop-types';
 import { css } from '@emotion/react';
 
