@@ -1,9 +1,10 @@
 import * as PropTypes from 'prop-types';
+import { css } from '@emotion/react';
 import Colors from '../../../../../assets/colors';
 
 function Room({ name }) {
   return (
-    <div style={{
+    <div css={css({
       display: 'flex',
       flexDirection: 'column',
       textAlign: 'center',
