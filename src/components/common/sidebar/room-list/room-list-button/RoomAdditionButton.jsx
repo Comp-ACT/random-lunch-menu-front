@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { css } from '@emotion/react';
 import Modal from '../../../dialog/modal';
 import RoomAdditionDialog from '../dialog/RoomAdditionDialog';
 import Colors from '../../../../../assets/colors';
@@ -11,7 +12,7 @@ function RoomAdditionButton() {
         onClick={() => {
           setAddRoom(true);
         }}
-        style={{
+        css={css({
           display: 'flex',
           flexDirection: 'column',
           textAlign: 'center',
@@ -22,7 +23,7 @@ function RoomAdditionButton() {
           borderColor: Colors.CORAL,
           borderRadius: 20,
           fontSize: 64,
-        }}
+        })}
       >
         +
       </div>
