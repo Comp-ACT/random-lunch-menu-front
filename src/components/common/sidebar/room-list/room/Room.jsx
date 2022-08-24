@@ -16,7 +16,11 @@ function Room({ name }) {
       borderWidth: 2,
       borderColor: Colors.CORAL,
       borderRadius: 10,
-    }}
+      '&:hover': {
+        background: Colors.CORAL,
+        color: Colors.OLDLACE,
+      },
+    })}
     >
       {name}
     </div>
