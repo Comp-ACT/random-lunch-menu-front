@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import Room from './room/Room';
 import RoomAdditionButton from './room-list-button/RoomAdditionButton';
 
@@ -7,21 +8,21 @@ function RoomList() {
     <Room name={temp} />
   ));
   return (
-    <div style={{
+    <div css={css({
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
-    }}
+    })}
     >
-      <p style={{
+      <p css={css({
         fontSize: 24,
         fontWeight: 'bold',
-      }}
+      })}
       >
         방 목록
       </p>
       <RoomAdditionButton />
-      <div style={{
+      <div css={css({
         overflow: 'scroll',
         height: '80%',
         display: 'flex',
@@ -30,7 +31,7 @@ function RoomList() {
         marginBottom: 20,
         paddingLeft: 20,
         paddingRight: 20,
-      }}
+      })}
       >
         {tempHtml}
       </div>
