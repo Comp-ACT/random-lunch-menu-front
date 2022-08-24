@@ -1,6 +1,6 @@
 import Hamburger from '../../../../assets/images/icons/Hamburger';
 import Person from '../../../../assets/images/icons/Person';
-import StyledText from '../../StyledText';
+import HeaderText from '../header-text/HeaderText';
 
 function RoomConfigHeader() {
   return (
@@ -9,7 +9,7 @@ function RoomConfigHeader() {
       marginRight: 5,
     }}
     >
-      <StyledText text="대충 방 제목" fontSize={24} fontWeight="bold" />
+      <HeaderText text="대충 방 제목" fontSize={24} fontWeight="bold" />
       <div style={{ width: 20 }} />
       <Person />
       <Hamburger />

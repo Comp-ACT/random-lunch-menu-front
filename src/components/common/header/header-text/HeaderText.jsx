@@ -1,24 +1,26 @@
+/** @jsxImportSource @emotion/react */
 import PropTypes from 'prop-types';
+import { css } from '@emotion/react';
 
-function StyledText({ text, fontSize = 12, fontWeight = 'bold' }) {
+function HeaderText({ text, fontSize = 12, fontWeight = 'bold' }) {
   return (
-    <div style={{
+    <div css={css({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       fontSize,
       fontWeight,
-    }}
+    })}
     >
       {text}
     </div>
   );
 }
 
-StyledText.propTypes = {
+HeaderText.propTypes = {
   text: PropTypes.string.isRequired,
   fontSize: PropTypes.number.isRequired,
   fontWeight: PropTypes.string.isRequired,
 };
 
-export default StyledText;
+export default HeaderText;
