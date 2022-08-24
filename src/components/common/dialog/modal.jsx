@@ -44,7 +44,7 @@ function Modal({ closeModal, children }) {
             border: 'none',
             color: Colors.DARKGRAY,
             background: 'transparent',
-            fontSize: 20,
+            fontSize: 30,
           }}
           onClick={closeModal}
         >

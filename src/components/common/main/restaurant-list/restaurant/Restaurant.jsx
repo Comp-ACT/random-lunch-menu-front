@@ -1,29 +1,44 @@
+import { useState } from 'react';
 import * as PropTypes from 'prop-types';
 import Colors from '../../../../../assets/colors';
-import RestaurantButton from './restaurant-button/RestaurantButton';
+import RestaurantInformationDialog from '../dialog/RestaurantInformationDialog';
+import Modal from '../../../dialog/modal';
 
 function Restaurant({ restaurant }) {
+  const [isClicked, setIsClicked] = useState(false);
   return (
-    <div
-      key={restaurant.name}
-      style={{
-        display: 'flex', marginTop: 30, textAlign: 'center', justifyContent: 'space-between', width: 300, background: Colors.CORAL,
-      }}
-    >
-      <RestaurantButton>-</RestaurantButton>
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'auto',
-        whiteSpace: 'nowrap',
-        width: 200,
-        height: 50,
-        justifyContent: 'center',
-      }}
+    <div>
+      {
+          isClicked && (
+          <Modal closeModal={() => setIsClicked(false)}>
+            <RestaurantInformationDialog />
+          </Modal>
+          )
+      }
+      <div
+        key={restaurant.name}
+        style={{
+          display: 'flex', marginTop: 30, textAlign: 'center', justifyContent: 'space-between', width: 300, background: Colors.CORAL,
+        }}
       >
-        {restaurant.restaurantName}
+        <div
+          onClick={() => {
+            setIsClicked(true);
+          }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'auto',
+            whiteSpace: 'nowrap',
+            width: '100%',
+            height: 50,
+            justifyContent: 'center',
+            textAlign: 'center',
+          }}
+        >
+          {restaurant.restaurantName}
+        </div>
       </div>
-      <RestaurantButton>+</RestaurantButton>
     </div>
   );
 }
