@@ -12,7 +12,7 @@ function Restaurant({ restaurant }) {
       {
           isClicked && (
           <Modal closeModal={() => setIsClicked(false)}>
-            <RestaurantInformationDialog />
+            <RestaurantInformationDialog restaurant={restaurant} />
           </Modal>
           )
       }
@@ -35,6 +35,10 @@ function Restaurant({ restaurant }) {
             height: 50,
             justifyContent: 'center',
             textAlign: 'center',
+            transition: '0.3s',
+            '&:hover': {
+              height: 55,
+            },
           })}
         >
           {restaurant.restaurantName}

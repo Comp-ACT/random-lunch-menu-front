@@ -16,6 +16,7 @@ function Room({ name }) {
       borderWidth: 2,
       borderColor: Colors.CORAL,
       borderRadius: 10,
+      transition: '0.2s',
       '&:hover': {
         background: Colors.CORAL,
         color: Colors.OLDLACE,
