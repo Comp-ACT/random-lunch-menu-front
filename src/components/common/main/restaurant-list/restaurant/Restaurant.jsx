@@ -19,7 +19,13 @@ function Restaurant({ restaurant }) {
       <div
         key={restaurant.name}
         css={css({
-          display: 'flex', marginTop: 30, textAlign: 'center', justifyContent: 'space-between', width: 300, background: Colors.CORAL,
+          display: 'flex',
+          marginTop: 30,
+          textAlign: 'center',
+          justifyContent: 'space-between',
+          width: 300,
+          background: Colors.CORAL,
+          borderRadius: 20,
         })}
       >
         <div
@@ -32,12 +38,13 @@ function Restaurant({ restaurant }) {
             overflow: 'auto',
             whiteSpace: 'nowrap',
             width: '100%',
-            height: 50,
+            height: 70,
             justifyContent: 'center',
             textAlign: 'center',
             transition: '0.3s',
             '&:hover': {
-              height: 55,
+              height: 77,
+              color: Colors.OLDLACE,
             },
           })}
         >
