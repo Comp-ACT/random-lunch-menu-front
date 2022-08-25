@@ -1,4 +1,5 @@
 import * as PropTypes from 'prop-types';
+import { css } from '@emotion/react';
 
 function RestaurantListInput({ width, setRestaurantList }) {
   function onKeyDown(e) {
@@ -12,13 +13,13 @@ function RestaurantListInput({ width, setRestaurantList }) {
     <input
       type="text"
       onKeyDown={onKeyDown}
-      style={{
+      css={css({
         width,
         textAlign: 'center',
         fontSize: 18,
         height: 40,
         border: 'none',
-      }}
+      })}
     />
   );
 }

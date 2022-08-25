@@ -1,9 +1,10 @@
 import * as PropTypes from 'prop-types';
+import { css } from '@emotion/react';
 import Colors from '../../../../../assets/colors';
 
 function Room({ name }) {
   return (
-    <div style={{
+    <div css={css({
       display: 'flex',
       flexDirection: 'column',
       textAlign: 'center',
@@ -15,7 +16,11 @@ function Room({ name }) {
       borderWidth: 2,
       borderColor: Colors.CORAL,
       borderRadius: 10,
-    }}
+      '&:hover': {
+        background: Colors.CORAL,
+        color: Colors.OLDLACE,
+      },
+    })}
     >
       {name}
     </div>
