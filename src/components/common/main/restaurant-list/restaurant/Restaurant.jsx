@@ -26,6 +26,7 @@ function Restaurant({ restaurant }) {
           width: 300,
           background: Colors.CORAL,
           borderRadius: 20,
+          fontSize: 20,
         })}
       >
         <div
@@ -42,6 +43,8 @@ function Restaurant({ restaurant }) {
             justifyContent: 'center',
             textAlign: 'center',
             transition: '0.3s',
+            paddingLeft: 10,
+            paddingRight: 10,
             '&:hover': {
               height: 77,
               color: Colors.OLDLACE,
