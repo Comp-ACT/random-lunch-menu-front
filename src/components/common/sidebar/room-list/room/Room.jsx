@@ -11,7 +11,7 @@ function Room({ name }) {
       fontSize: 18,
       justifyContent: 'center',
       marginTop: 10,
-      minHeight: 100,
+      minHeight: 90,
       borderStyle: 'solid',
       borderWidth: 2,
       borderColor: Colors.CORAL,
