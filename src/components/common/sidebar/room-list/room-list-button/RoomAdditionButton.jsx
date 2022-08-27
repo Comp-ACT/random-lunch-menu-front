@@ -23,6 +23,7 @@ function RoomAdditionButton() {
           borderColor: Colors.CORAL,
           borderRadius: 20,
           fontSize: 64,
+          transition: '0.2s',
           '&:hover': {
             background: Colors.CORAL,
             color: Colors.OLDLACE,

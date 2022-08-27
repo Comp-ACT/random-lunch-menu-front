@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import { css } from '@emotion/react';
 import Colors from '../../../assets/colors';
 
 function Modal({ closeModal, children }) {
@@ -14,7 +15,7 @@ function Modal({ closeModal, children }) {
   }, []);
   return (
     <div
-      style={{
+      css={css({
         position: 'fixed',
         top: 0,
         left: 0,
@@ -24,9 +25,9 @@ function Modal({ closeModal, children }) {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-      }}
+      })}
     >
-      <div style={{
+      <div css={css({
         position: 'absolute',
         width: 600,
         height: 600,
@@ -34,10 +35,10 @@ function Modal({ closeModal, children }) {
         textAlign: 'center',
         background: 'white',
         borderRadius: 10,
-      }}
+      })}
       >
         <button
-          style={{
+          css={css({
             position: 'absolute',
             top: 15,
             right: 15,
@@ -45,7 +46,11 @@ function Modal({ closeModal, children }) {
             color: Colors.DARKGRAY,
             background: 'transparent',
             fontSize: 30,
-          }}
+            transition: '0.2s',
+            '&:hover': {
+              fontSize: 33,
+            },
+          })}
           onClick={closeModal}
         >
           ✖

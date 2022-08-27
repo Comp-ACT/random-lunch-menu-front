@@ -12,14 +12,21 @@ function Restaurant({ restaurant }) {
       {
           isClicked && (
           <Modal closeModal={() => setIsClicked(false)}>
-            <RestaurantInformationDialog />
+            <RestaurantInformationDialog restaurant={restaurant} />
           </Modal>
           )
       }
       <div
         key={restaurant.name}
         css={css({
-          display: 'flex', marginTop: 30, textAlign: 'center', justifyContent: 'space-between', width: 300, background: Colors.CORAL,
+          display: 'flex',
+          marginTop: 30,
+          textAlign: 'center',
+          justifyContent: 'space-between',
+          width: 300,
+          background: Colors.CORAL,
+          borderRadius: 20,
+          fontSize: 20,
         })}
       >
         <div
@@ -32,9 +39,16 @@ function Restaurant({ restaurant }) {
             overflow: 'auto',
             whiteSpace: 'nowrap',
             width: '100%',
-            height: 50,
+            height: 70,
             justifyContent: 'center',
             textAlign: 'center',
+            transition: '0.3s',
+            paddingLeft: 10,
+            paddingRight: 10,
+            '&:hover': {
+              height: 77,
+              color: Colors.OLDLACE,
+            },
           })}
         >
           {restaurant.restaurantName}
