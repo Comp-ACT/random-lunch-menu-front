@@ -1,39 +1,58 @@
 import * as PropTypes from 'prop-types';
 import { css } from '@emotion/react';
+import { useState } from 'react';
 import Colors from '../../../../../assets/colors';
+import { isNullOrWhiteSpace } from '../../../../../utils';
+import { addRestaurantAPI } from '../../../../../utils/MockAPI';
+import LoadingModal from '../../../dialog/LoadingModal';
 
 function RestaurantListInput({ width, setRestaurantList }) {
+  const [isLoading, setIsLoading] = useState(false);
   function onKeyDown(e) {
     if (e.key === 'Enter' && e.nativeEvent.isComposing === false) {
       e.preventDefault();
-      setRestaurantList(e);
+
+      const inputText = e.target.value;
       e.target.value = '';
+
+      if (isNullOrWhiteSpace(inputText)) {
+        return;
+      }
+
+      setIsLoading(true);
+
+      addRestaurantAPI(inputText).then((response) => {
+        setRestaurantList(response);
+        setIsLoading(false);
+      });
     }
   }
   return (
-    <input
-      type="text"
-      onKeyDown={onKeyDown}
-      placeholder="가게 이름을 적어주세요."
-      css={css({
-        uiFieldPlaceholderColor: '#767676',
-        width,
-        fontSize: 18,
-        height: 40,
-        border: 'none',
-        borderBottom: '1px solid #ccc',
-        backgroundColor: 'transparent',
-        borderRadius: 0,
-        boxSizing: 'border-box',
-        transition: '0.3s',
-        '&:focus': {
-          outline: 'none',
-          borderColor: Colors.CORAL,
-          paddingLeft: 20,
-          paddingRight: 20,
-        },
-      })}
-    />
+    <div>
+      {isLoading && <LoadingModal />}
+      <input
+        type="text"
+        onKeyDown={onKeyDown}
+        placeholder="가게 이름을 적어주세요."
+        css={css({
+          width,
+          fontSize: 18,
+          height: 40,
+          border: 'none',
+          borderBottom: '1px solid #ccc',
+          backgroundColor: 'transparent',
+          borderRadius: 0,
+          boxSizing: 'border-box',
+          transition: '0.3s',
+          '&:focus': {
+            outline: 'none',
+            borderColor: Colors.CORAL,
+            paddingLeft: 20,
+            paddingRight: 20,
+          },
+        })}
+      />
+    </div>
   );
 }
 

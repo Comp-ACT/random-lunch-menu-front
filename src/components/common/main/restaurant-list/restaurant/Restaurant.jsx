@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import { css } from '@emotion/react';
 import Colors from '../../../../../assets/colors';
 import RestaurantInformationDialog from '../dialog/RestaurantInformationDialog';
-import Modal from '../../../dialog/modal';
+import Modal from '../../../dialog/Modal';
 
 function Restaurant({ restaurant }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -60,7 +60,7 @@ function Restaurant({ restaurant }) {
 
 Restaurant.propTypes = {
   restaurant: PropTypes.objectOf({
-    id: PropTypes.string,
+    id: PropTypes.number,
     restaurantName: PropTypes.string,
     agreeCount: PropTypes.number,
     disagreeCount: PropTypes.number,
