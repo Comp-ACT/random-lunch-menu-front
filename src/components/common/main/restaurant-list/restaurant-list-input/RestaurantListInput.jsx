@@ -1,12 +1,13 @@
 import * as PropTypes from 'prop-types';
 import { css } from '@emotion/react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Colors from '../../../../../assets/colors';
 import { isNullOrWhiteSpace } from '../../../../../utils';
 import { addRestaurantAPI } from '../../../../../utils/MockAPI';
 import LoadingModal from '../../../dialog/LoadingModal';
 
 function RestaurantListInput({ width, setRestaurantList }) {
+  const inputElement = useRef();
   const [isLoading, setIsLoading] = useState(false);
   function onKeyDown(e) {
     if (e.key === 'Enter' && e.nativeEvent.isComposing === false) {
@@ -21,6 +22,8 @@ function RestaurantListInput({ width, setRestaurantList }) {
 
       setIsLoading(true);
 
+      inputElement.current.blur();
+
       addRestaurantAPI(inputText).then((response) => {
         setRestaurantList(response);
         setIsLoading(false);
@@ -31,6 +34,7 @@ function RestaurantListInput({ width, setRestaurantList }) {
     <div>
       {isLoading && <LoadingModal />}
       <input
+        ref={inputElement}
         type="text"
         onKeyDown={onKeyDown}
         placeholder="가게 이름을 적어주세요."
