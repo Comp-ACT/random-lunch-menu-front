@@ -3,12 +3,12 @@ import { useState } from 'react';
 function useRestaurantList(initialForm) {
   const [restaurantList, setRestaurantList] = useState(initialForm);
 
-  function addRestaurant(e) {
+  function addRestaurant(response) {
     const copiedRestaurantList = [...restaurantList, {
-      id: '1234',
-      restaurantName: e.target.value,
-      agreeCount: 3,
-      disagreeCount: 1,
+      id: response.id,
+      restaurantName: response.restaurantName,
+      agreeCount: response.agreeCount,
+      disagreeCount: response.disagreeCount,
     }];
     setRestaurantList(copiedRestaurantList);
   }

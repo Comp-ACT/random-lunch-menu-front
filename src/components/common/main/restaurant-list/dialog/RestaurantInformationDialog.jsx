@@ -6,25 +6,55 @@ function RestaurantInformationDialog({ restaurant }) {
     <div css={css({
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-evenly',
       height: '100%',
     })}
     >
-      <div>
+      <div css={css({
+        fontSize: 32,
+      })}
+      >
         {restaurant.restaurantName}
       </div>
-      <div>
-        찬성 개수:
-        {' '}
-        {restaurant.agreeCount}
-      </div>
-      <div>
-        반대 개수:
-        {' '}
-        {restaurant.disagreeCount}
-      </div>
-      <div>
-        찬성 반대 버튼
+      <div css={css({
+        display: 'flex',
+        flexDirection: 'column',
+        marginTop: 100,
+        textAlign: 'left',
+        fontSize: 24,
+        justifyContent: 'space-between',
+        height: '100%',
+      })}
+      >
+        <div css={css({
+          display: 'flex',
+        })}
+        >
+          <p css={css({ marginRight: 15 })}>
+            찬성 개수:
+            {' '}
+            {restaurant.agreeCount}
+          </p>
+          <button>찬성</button>
+        </div>
+        <div css={css({
+          display: 'flex',
+        })}
+        >
+          <p css={css({ marginRight: 15 })}>
+            반대 개수:
+            {' '}
+            {restaurant.disagreeCount}
+          </p>
+          <button>반대</button>
+        </div>
+        <div css={css({
+          display: 'flex',
+          justifyContent: 'space-around',
+        })}
+        >
+          <button>투표 취소</button>
+          <button>가게 삭제</button>
+        </div>
       </div>
     </div>
   );
@@ -32,7 +62,7 @@ function RestaurantInformationDialog({ restaurant }) {
 
 RestaurantInformationDialog.propTypes = {
   restaurant: PropTypes.objectOf({
-    id: PropTypes.string,
+    id: PropTypes.number,
     restaurantName: PropTypes.string,
     agreeCount: PropTypes.number,
     disagreeCount: PropTypes.number,

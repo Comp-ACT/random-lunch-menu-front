@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { css } from '@emotion/react';
-import Modal from '../../../dialog/modal';
+import Modal from '../../../dialog/Modal';
 import RoomAdditionDialog from '../dialog/RoomAdditionDialog';
 import Colors from '../../../../../assets/colors';
 
