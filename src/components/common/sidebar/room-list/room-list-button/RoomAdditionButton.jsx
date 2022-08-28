@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { css } from '@emotion/react';
+import * as PropTypes from 'prop-types';
 import Modal from '../../../dialog/Modal';
 import RoomAdditionDialog from '../dialog/RoomAdditionDialog';
 import Colors from '../../../../../assets/colors';
 
-function RoomAdditionButton() {
-  const [addRoom, setAddRoom] = useState(false);
+function RoomAdditionButton({ addRoomList }) {
+  const [showRoomAdditionDialog, setShowRoomAdditionDialog] = useState(false);
   return (
     <div>
       <div
         onClick={() => {
-          setAddRoom(true);
+          setShowRoomAdditionDialog(true);
         }}
         css={css({
           display: 'flex',
@@ -32,16 +33,27 @@ function RoomAdditionButton() {
       >
         +
       </div>
-      {addRoom && (
+      {showRoomAdditionDialog && (
         <Modal closeModal={() => {
-          setAddRoom(false);
+          setShowRoomAdditionDialog(false);
         }}
         >
-          <RoomAdditionDialog />
+          <RoomAdditionDialog addRoomListAndCloseModal={(name) => {
+            setShowRoomAdditionDialog(false);
+            addRoomList({
+              id: Math.random(),
+              roomName: name,
+            });
+          }}
+          />
         </Modal>
       )}
     </div>
   );
 }
+
+RoomAdditionButton.propTypes = {
+  addRoomList: PropTypes.func.isRequired,
+};
 
 export default RoomAdditionButton;

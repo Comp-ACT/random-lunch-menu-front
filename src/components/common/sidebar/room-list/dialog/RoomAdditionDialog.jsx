@@ -1,15 +1,18 @@
 import { css } from '@emotion/react';
 import { useEffect, useState } from 'react';
+import * as PropTypes from 'prop-types';
 import { isNullOrWhiteSpace } from '../../../../../utils';
 
-function RoomAdditionDialog() {
+function RoomAdditionDialog({ addRoomListAndCloseModal }) {
   const [name, setName] = useState('');
   const [isNameNullOrWhiteSpace, setIsNameNullOrWhiteSpace] = useState(false);
   const [isNameOver15Letters, setIsNameOver15Letters] = useState(false);
+
   useEffect(() => {
     setIsNameNullOrWhiteSpace(isNullOrWhiteSpace(name));
-    setIsNameOver15Letters(name.length > 15);
+    setIsNameOver15Letters(name.length > 20);
   }, [name]);
+
   return (
     <div css={css({
       display: 'flex',
@@ -55,14 +58,23 @@ function RoomAdditionDialog() {
           color: isNameOver15Letters ? 'red' : 'green',
         })}
         >
-          2. 이름의 최대 길이는 15자입니다.
+          2. 이름의 최대 길이는 20자입니다.
         </p>
       </div>
       <div>
-        <button disabled={isNameNullOrWhiteSpace || isNameOver15Letters}>방 만들기</button>
+        <button
+          disabled={isNameNullOrWhiteSpace || isNameOver15Letters}
+          onClick={() => addRoomListAndCloseModal(name)}
+        >
+          방 만들기
+        </button>
       </div>
     </div>
   );
 }
+
+RoomAdditionDialog.propTypes = {
+  addRoomListAndCloseModal: PropTypes.func.isRequired,
+};
 
 export default RoomAdditionDialog;
