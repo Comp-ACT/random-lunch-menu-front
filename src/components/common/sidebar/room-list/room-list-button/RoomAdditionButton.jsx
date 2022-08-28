@@ -4,9 +4,12 @@ import * as PropTypes from 'prop-types';
 import Modal from '../../../dialog/Modal';
 import RoomAdditionDialog from '../dialog/RoomAdditionDialog';
 import Colors from '../../../../../assets/colors';
+import { addRoomApi } from '../../../../../utils/MockAPI';
+import LoadingModal from '../../../dialog/LoadingModal';
 
 function RoomAdditionButton({ addRoomList }) {
   const [showRoomAdditionDialog, setShowRoomAdditionDialog] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <div>
       <div
@@ -40,14 +43,23 @@ function RoomAdditionButton({ addRoomList }) {
         >
           <RoomAdditionDialog addRoomListAndCloseModal={(name) => {
             setShowRoomAdditionDialog(false);
-            addRoomList({
+
+            setIsLoading(true);
+
+            addRoomApi({
               id: Math.random(),
               roomName: name,
+            }).then((response) => {
+              addRoomList(response);
+              setIsLoading(false);
             });
           }}
           />
         </Modal>
       )}
+      {
+        isLoading && <LoadingModal />
+      }
     </div>
   );
 }
