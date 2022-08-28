@@ -15,3 +15,19 @@ export async function addRestaurantAPI(request) {
 
   return result;
 }
+
+// 방 추가 mock api
+export async function addRoomApi(request) {
+  const result = new Promise((resolve) => {
+    const time = Math.random() * 2000 + 200;
+    setTimeout(() => {
+      const response = {
+        id: Math.random(),
+        roomName: request.roomName,
+      };
+      resolve(response);
+    }, time);
+  });
+
+  return result;
+}

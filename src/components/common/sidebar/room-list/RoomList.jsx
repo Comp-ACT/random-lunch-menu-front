@@ -1,11 +1,12 @@
 import { css } from '@emotion/react';
 import Room from './room/Room';
 import RoomAdditionButton from './room-list-button/RoomAdditionButton';
+import useRoomList from '../../../../hooks/useRoomList';
 
 function RoomList() {
-  const tempList = ['Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴', 'Comp-ACT 점심 메뉴', 'Comp-ACT 저녁 메뉴', '전능 점심 메뉴'];
-  const tempHtml = tempList.map((temp) => (
-    <Room name={temp} />
+  const [roomList, addRoomList] = useRoomList([]);
+  const rooms = roomList.map((room) => (
+    <Room key={room.id} room={room} />
   ));
   return (
     <div css={css({
@@ -21,7 +22,7 @@ function RoomList() {
       >
         방 목록
       </p>
-      <RoomAdditionButton />
+      <RoomAdditionButton addRoomList={addRoomList} />
       <div css={css({
         overflow: 'scroll',
         height: '80%',
@@ -33,7 +34,7 @@ function RoomList() {
         paddingRight: 20,
       })}
       >
-        {tempHtml}
+        {rooms}
       </div>
     </div>
   );
