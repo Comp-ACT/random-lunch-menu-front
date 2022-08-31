@@ -13,6 +13,14 @@ function RoomAdditionDialog({ addRoomListAndCloseModal }) {
     setIsNameOver15Letters(roomName.length > 20);
   }, [roomName]);
 
+  function onKeyDown(e) {
+    if (e.key === 'Enter' && e.nativeEvent.isComposing === false) {
+      e.preventDefault();
+
+      if (!isNameNullOrWhiteSpace && !isNameOver15Letters) addRoomListAndCloseModal(roomName);
+    }
+  }
+
   return (
     <div css={css({
       display: 'flex',
@@ -30,6 +38,7 @@ function RoomAdditionDialog({ addRoomListAndCloseModal }) {
       <div>
         <input
           type="text"
+          onKeyDown={onKeyDown}
           onChange={(e) => setRoomName(e.target.value)}
           placeholder="방 이름을 적어주세요."
           css={css({
