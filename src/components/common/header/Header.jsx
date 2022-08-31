@@ -15,7 +15,7 @@ function Header() {
           width: '80%',
         })}
       >
-        <HeaderText text="점메추" fontSize={24} fontWeight="bold" />
+        <HeaderText text="점메추" fontSize={32} fontWeight="bold" />
         <div>
           <RoomConfigHeader />
         </div>
