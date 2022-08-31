@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { roomListAtoms } from '../recoil/states/atoms';
 
-function useRoomList(initialForm) {
-  const [roomList, setRoomList] = useState(initialForm);
+function useRoomList() {
+  const [roomList, setRoomList] = useRecoilState(roomListAtoms);
 
   function addRoomList(response) {
     const copiedRoomList = [...roomList, {

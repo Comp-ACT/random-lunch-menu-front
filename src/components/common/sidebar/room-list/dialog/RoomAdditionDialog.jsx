@@ -4,14 +4,14 @@ import * as PropTypes from 'prop-types';
 import { isNullOrWhiteSpace } from '../../../../../utils';
 
 function RoomAdditionDialog({ addRoomListAndCloseModal }) {
-  const [name, setName] = useState('');
+  const [roomName, setRoomName] = useState('');
   const [isNameNullOrWhiteSpace, setIsNameNullOrWhiteSpace] = useState(false);
   const [isNameOver15Letters, setIsNameOver15Letters] = useState(false);
 
   useEffect(() => {
-    setIsNameNullOrWhiteSpace(isNullOrWhiteSpace(name));
-    setIsNameOver15Letters(name.length > 20);
-  }, [name]);
+    setIsNameNullOrWhiteSpace(isNullOrWhiteSpace(roomName));
+    setIsNameOver15Letters(roomName.length > 20);
+  }, [roomName]);
 
   return (
     <div css={css({
@@ -30,7 +30,7 @@ function RoomAdditionDialog({ addRoomListAndCloseModal }) {
       <div>
         <input
           type="text"
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setRoomName(e.target.value)}
           placeholder="방 이름을 적어주세요."
           css={css({
             width: 400,
@@ -64,7 +64,7 @@ function RoomAdditionDialog({ addRoomListAndCloseModal }) {
       <div>
         <button
           disabled={isNameNullOrWhiteSpace || isNameOver15Letters}
-          onClick={() => addRoomListAndCloseModal(name)}
+          onClick={() => addRoomListAndCloseModal(roomName)}
         >
           방 만들기
         </button>
