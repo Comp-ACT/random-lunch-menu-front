@@ -1,9 +1,10 @@
 import { css, Global } from '@emotion/react';
+import { RecoilRoot } from 'recoil';
 import Home from './components/pages/Home';
 
 function App() {
   return (
-    <div>
+    <RecoilRoot>
       <Global styles={css`
       *{
         font-family: 'DalseoHealing';
@@ -23,7 +24,7 @@ function App() {
         `}
       />
       <Home />
-    </div>
+    </RecoilRoot>
   );
 }
 
