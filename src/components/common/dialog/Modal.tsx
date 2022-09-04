@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import {ReactNode, useEffect} from 'react';
 import { css } from '@emotion/react';
 import Colors from '../../../assets/colors';
 
 type Props = {
   closeModal: () => void;
-  children: any;
+  children: ReactNode;
 }
 
 function Modal({ closeModal, children }: Props) {
