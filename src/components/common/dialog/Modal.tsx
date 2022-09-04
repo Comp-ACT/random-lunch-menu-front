@@ -16,7 +16,7 @@ function Modal({ closeModal, children }: Props) {
     };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
-  }, []);
+  });
   return (
     <div
       css={css({
