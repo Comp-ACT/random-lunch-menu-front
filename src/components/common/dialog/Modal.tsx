@@ -1,11 +1,15 @@
-import * as PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { css } from '@emotion/react';
 import Colors from '../../../assets/colors';
 
-function Modal({ closeModal, children }) {
+type Props = {
+  closeModal: () => void;
+  children: any;
+}
+
+function Modal({ closeModal, children }: Props) {
   useEffect(() => {
-    const close = (e) => {
+    const close = (e: any) => {
       if (e.key === 'Escape') {
         closeModal();
       }
@@ -60,10 +64,5 @@ function Modal({ closeModal, children }) {
     </div>
   );
 }
-
-Modal.propTypes = {
-  closeModal: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired,
-};
 
 export default Modal;
