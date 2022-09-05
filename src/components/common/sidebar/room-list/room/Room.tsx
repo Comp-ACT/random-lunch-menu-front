@@ -1,15 +1,21 @@
-import * as PropTypes from 'prop-types';
 import { css } from '@emotion/react';
 import { useSetRecoilState } from 'recoil';
 import Colors from '../../../../../assets/colors';
 import { selectedRoomAtoms } from '../../../../../recoil/atoms';
+import { RoomType } from '../../../../../types';
 
-function Room({ room }) {
+type Props = {
+  room: RoomType;
+};
+
+function Room({ room }: Props) {
   const setSelectedRoom = useSetRecoilState(selectedRoomAtoms);
 
   return (
     <div
-      onClick={() => { setSelectedRoom(room); }}
+      onClick={() => {
+        setSelectedRoom(room);
+      }}
       css={css({
         display: 'flex',
         flexDirection: 'column',
@@ -36,9 +42,5 @@ function Room({ room }) {
     </div>
   );
 }
-
-Room.propTypes = {
-  room: PropTypes.string.isRequired,
-};
 
 export default Room;

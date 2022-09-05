@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react';
 import * as PropTypes from 'prop-types';
 import { isNullOrWhiteSpace } from '../../../../../utils';
 
-function RoomAdditionDialog({ addRoomListAndCloseModal }) {
+type Props = {
+  addRoomListAndCloseModal: (roomName: string) => void;
+};
+
+function RoomAdditionDialog({ addRoomListAndCloseModal }: Props) {
   const [roomName, setRoomName] = useState('');
   const [isNameNullOrWhiteSpace, setIsNameNullOrWhiteSpace] = useState(false);
   const [isNameOver15Letters, setIsNameOver15Letters] = useState(false);
@@ -13,25 +17,28 @@ function RoomAdditionDialog({ addRoomListAndCloseModal }) {
     setIsNameOver15Letters(roomName.length > 20);
   }, [roomName]);
 
-  function onKeyDown(e) {
-    if (e.key === 'Enter' && e.nativeEvent.isComposing === false) {
-      e.preventDefault();
+  function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === 'Enter' && event.nativeEvent.isComposing === false) {
+      event.preventDefault();
 
-      if (!isNameNullOrWhiteSpace && !isNameOver15Letters) addRoomListAndCloseModal(roomName);
+      if (!isNameNullOrWhiteSpace && !isNameOver15Letters)
+        addRoomListAndCloseModal(roomName);
     }
   }
 
   return (
-    <div css={css({
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      height: '100%',
-    })}
-    >
-      <div css={css({
-        fontSize: 32,
+    <div
+      css={css({
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        height: '100%',
       })}
+    >
+      <div
+        css={css({
+          fontSize: 32,
+        })}
       >
         방 만들기
       </div>
@@ -39,7 +46,7 @@ function RoomAdditionDialog({ addRoomListAndCloseModal }) {
         <input
           type="text"
           onKeyDown={onKeyDown}
-          onChange={(e) => setRoomName(e.target.value)}
+          onChange={e => setRoomName(e.target.value)}
           placeholder="방 이름을 적어주세요."
           css={css({
             width: 400,
@@ -57,15 +64,17 @@ function RoomAdditionDialog({ addRoomListAndCloseModal }) {
         />
       </div>
       <div>
-        <p css={css({
-          color: isNameNullOrWhiteSpace ? 'red' : 'green',
-        })}
+        <p
+          css={css({
+            color: isNameNullOrWhiteSpace ? 'red' : 'green',
+          })}
         >
           1. 공백으로만 이루어진 이름은 사용하지 못합니다.
         </p>
-        <p css={css({
-          color: isNameOver15Letters ? 'red' : 'green',
-        })}
+        <p
+          css={css({
+            color: isNameOver15Letters ? 'red' : 'green',
+          })}
         >
           2. 이름의 최대 길이는 20자입니다.
         </p>

@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { css } from '@emotion/react';
-import * as PropTypes from 'prop-types';
 import Modal from '../../../dialog/Modal';
 import RoomAdditionDialog from '../dialog/RoomAdditionDialog';
 import Colors from '../../../../../assets/colors';
 import { addRoomApi } from '../../../../../utils/MockAPI';
 import LoadingModal from '../../../dialog/LoadingModal';
+import { RoomType } from '../../../../../types';
 
-function RoomAdditionButton({ addRoomList }) {
+type Props = {
+  addRoomList: (room: RoomType) => void;
+};
+
+function RoomAdditionButton({ addRoomList }: Props) {
   const [showRoomAdditionDialog, setShowRoomAdditionDialog] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   return (
@@ -37,35 +41,31 @@ function RoomAdditionButton({ addRoomList }) {
         +
       </div>
       {showRoomAdditionDialog && (
-        <Modal closeModal={() => {
-          setShowRoomAdditionDialog(false);
-        }}
-        >
-          <RoomAdditionDialog addRoomListAndCloseModal={(name) => {
+        <Modal
+          closeModal={() => {
             setShowRoomAdditionDialog(false);
-
-            setIsLoading(true);
-
-            addRoomApi({
-              id: Math.random(),
-              roomName: name,
-            }).then((response) => {
-              addRoomList(response);
-              setIsLoading(false);
-            });
           }}
+        >
+          <RoomAdditionDialog
+            addRoomListAndCloseModal={name => {
+              setShowRoomAdditionDialog(false);
+
+              setIsLoading(true);
+
+              addRoomApi({
+                id: Math.random(),
+                roomName: name,
+              }).then(response => {
+                addRoomList(response);
+                setIsLoading(false);
+              });
+            }}
           />
         </Modal>
       )}
-      {
-        isLoading && <LoadingModal />
-      }
+      {isLoading && <LoadingModal />}
     </div>
   );
 }
-
-RoomAdditionButton.propTypes = {
-  addRoomList: PropTypes.func.isRequired,
-};
 
 export default RoomAdditionButton;
