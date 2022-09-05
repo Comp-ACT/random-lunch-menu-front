@@ -1,12 +1,12 @@
 import {atom} from 'recoil';
-import {Room} from "../types";
+import {RoomType} from "../types";
 
-export const roomListAtoms = atom<Array<Room>>({
+export const roomListAtoms = atom<Array<RoomType>>({
   key: 'roomListAtoms',
   default: [],
 });
 
-export const selectedRoomAtoms = atom<Room>({
+export const selectedRoomAtoms = atom<RoomType>({
   key: 'selectedRoomAtoms',
   default: {
     id: -1,

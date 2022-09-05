@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import {Restaurant} from "../types";
+import {RestaurantType} from "../types";
 
-function useRestaurantList(initialForm: Array<Restaurant>) {
+function useRestaurantList(initialForm: Array<RestaurantType>) {
   const [restaurantList, setRestaurantList] = useState(initialForm);
 
-  function addRestaurant(restaurant: Restaurant) {
+  function addRestaurant(restaurant: RestaurantType) {
     setRestaurantList([...restaurantList, restaurant]);
   }
 

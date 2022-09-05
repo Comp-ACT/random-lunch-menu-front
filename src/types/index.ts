@@ -1,12 +1,12 @@
-export type Restaurant = {
+export type RestaurantType = {
   id: number;
   restaurantName: string;
   agreeCount: number;
   disagreeCount: number;
 }
 
-export type Room = {
+export type RoomType = {
   id: number;
   roomName: string;
-  restaurants: Array<Restaurant>
+  restaurants: Array<RestaurantType>
 }
