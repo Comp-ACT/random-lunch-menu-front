@@ -1,4 +1,4 @@
-export type Restuarant = {
+export type Restaurant = {
   id: number;
   restaurantName: string;
   agreeCount: number;
@@ -8,5 +8,5 @@ export type Restuarant = {
 export type Room = {
   id: number;
   roomName: string;
-  restaurants: Array<Restuarant>
+  restaurants: Array<Restaurant>
 }
