@@ -3,7 +3,7 @@ import { useRecoilState } from 'recoil';
 import Hamburger from '../../../../assets/images/icons/Hamburger';
 import Person from '../../../../assets/images/icons/Person';
 import HeaderText from '../header-text/HeaderText';
-import { selectedRoomAtoms } from '../../../../recoil/states/atoms';
+import { selectedRoomAtoms } from '../../../../recoil/atoms';
 
 function RoomConfigHeader() {
   const [selectedRoom] = useRecoilState(selectedRoomAtoms);

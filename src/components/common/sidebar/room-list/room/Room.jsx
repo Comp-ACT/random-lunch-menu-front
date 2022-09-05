@@ -2,7 +2,7 @@ import * as PropTypes from 'prop-types';
 import { css } from '@emotion/react';
 import { useSetRecoilState } from 'recoil';
 import Colors from '../../../../../assets/colors';
-import { selectedRoomAtoms } from '../../../../../recoil/states/atoms';
+import { selectedRoomAtoms } from '../../../../../recoil/atoms';
 
 function Room({ room }) {
   const setSelectedRoom = useSetRecoilState(selectedRoomAtoms);
