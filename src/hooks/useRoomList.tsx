@@ -7,13 +7,7 @@ function useRoomList() {
   const setSelectedRoom = useSetRecoilState(selectedRoomAtoms);
 
   function addRoomList(room: Room) {
-    const copiedRoomList = [...roomList, {
-      id: room.id,
-      roomName: room.roomName,
-      restaurants: [],
-    }];
-
-    setRoomList(copiedRoomList);
+    setRoomList([...roomList, room]);
 
     setSelectedRoom(room);
   }
