@@ -1,11 +1,15 @@
 import { useState } from 'react';
-import * as PropTypes from 'prop-types';
 import { css } from '@emotion/react';
 import Colors from '../../../../../assets/colors';
 import RestaurantInformationDialog from '../dialog/RestaurantInformationDialog';
 import Modal from '../../../dialog/Modal';
+import {RestaurantType} from "../../../../../types";
 
-function Restaurant({ restaurant }) {
+type Props = {
+  restaurant: RestaurantType;
+}
+
+function Restaurant({ restaurant }: Props) {
   const [isClicked, setIsClicked] = useState(false);
   return (
     <div>
@@ -17,7 +21,7 @@ function Restaurant({ restaurant }) {
           )
       }
       <div
-        key={restaurant.name}
+        key={restaurant.restaurantName}
         css={css({
           display: 'flex',
           marginTop: 30,
@@ -57,14 +61,5 @@ function Restaurant({ restaurant }) {
     </div>
   );
 }
-
-Restaurant.propTypes = {
-  restaurant: PropTypes.objectOf({
-    id: PropTypes.number,
-    restaurantName: PropTypes.string,
-    agreeCount: PropTypes.number,
-    disagreeCount: PropTypes.number,
-  }).isRequired,
-};
 
 export default Restaurant;
