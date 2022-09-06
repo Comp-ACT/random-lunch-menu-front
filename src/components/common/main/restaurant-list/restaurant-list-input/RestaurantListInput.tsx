@@ -1,20 +1,27 @@
 import * as PropTypes from 'prop-types';
 import { css } from '@emotion/react';
-import { useRef, useState } from 'react';
+import React, {useRef, useState} from 'react';
 import Colors from '../../../../../assets/colors';
 import { isNullOrWhiteSpace } from '../../../../../utils';
 import { addRestaurantAPI } from '../../../../../utils/MockAPI';
 import LoadingModal from '../../../dialog/LoadingModal';
+import {RestaurantType} from "../../../../../types";
 
-function RestaurantListInput({ width, setRestaurantList }) {
-  const inputElement = useRef();
+type Props = {
+  width: number;
+  setRestaurantList: (restaurant: RestaurantType) => void;
+}
+
+function RestaurantListInput({ width, setRestaurantList }: Props) {
+  const inputElement = useRef<HTMLInputElement>(null);
   const [isLoading, setIsLoading] = useState(false);
-  function onKeyDown(e) {
-    if (e.key === 'Enter' && e.nativeEvent.isComposing === false) {
-      e.preventDefault();
+  function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === 'Enter' && event.nativeEvent.isComposing === false) {
+      event.preventDefault();
 
-      const inputText = e.target.value;
-      e.target.value = '';
+      const inputText = event.currentTarget.value;
+
+      event.currentTarget.value = '';
 
       if (isNullOrWhiteSpace(inputText)) {
         return;
@@ -22,7 +29,7 @@ function RestaurantListInput({ width, setRestaurantList }) {
 
       setIsLoading(true);
 
-      inputElement.current.blur();
+      inputElement.current?.blur();
 
       addRestaurantAPI(inputText).then((response) => {
         setRestaurantList(response);

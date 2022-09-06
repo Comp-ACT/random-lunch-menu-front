@@ -1,12 +1,11 @@
+import React from 'react';
+
 /* eslint-disable */
 function Loading() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 496 496"
-      style={{
-					  enableBackground: 'new 0 0 496 496',
-      }}
       xmlSpace="preserve"
     >
       <circle
