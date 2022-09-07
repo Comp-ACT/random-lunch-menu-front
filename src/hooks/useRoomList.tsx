@@ -1,18 +1,25 @@
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { roomListAtoms, selectedRoomAtoms } from '../recoil/atoms';
-import {RoomType} from "../types";
+import {
+  roomIdListAtoms,
+  selectedRoomIdAtoms,
+  selectedRoomSelector,
+} from '../recoil/atoms';
+import { RoomType } from '../types';
 
 function useRoomList() {
-  const [roomList, setRoomList] = useRecoilState(roomListAtoms);
-  const setSelectedRoom = useSetRecoilState(selectedRoomAtoms);
+  const [roomIdList, setRoomIdList] = useRecoilState(roomIdListAtoms);
+  const setSelectedRoomId = useSetRecoilState(selectedRoomIdAtoms);
+  const setSelectedRoom = useSetRecoilState(selectedRoomSelector);
 
-  function addRoomList(room: RoomType) {
-    setRoomList([...roomList, room]);
+  function addRoom(room: RoomType) {
+    setRoomIdList([...roomIdList, room.id]);
+
+    setSelectedRoomId(room.id);
 
     setSelectedRoom(room);
   }
 
-  return [roomList, addRoomList];
+  return [roomIdList, addRoom];
 }
 
 export default useRoomList;

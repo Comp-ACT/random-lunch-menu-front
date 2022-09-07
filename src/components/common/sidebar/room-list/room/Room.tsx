@@ -1,20 +1,20 @@
 import { css } from '@emotion/react';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import Colors from '../../../../../assets/colors';
-import { selectedRoomAtoms } from '../../../../../recoil/atoms';
-import { RoomType } from '../../../../../types';
+import { RoomAtoms, selectedRoomIdAtoms } from '../../../../../recoil/atoms';
 
 type Props = {
-  room: RoomType;
+  roomId: number;
 };
 
-function Room({ room }: Props) {
-  const setSelectedRoom = useSetRecoilState(selectedRoomAtoms);
+function Room({ roomId }: Props) {
+  const setSelectedRoomId = useSetRecoilState(selectedRoomIdAtoms);
+  const room = useRecoilValue(RoomAtoms(roomId));
 
   return (
     <div
       onClick={() => {
-        setSelectedRoom(room);
+        setSelectedRoomId(roomId);
       }}
       css={css({
         display: 'flex',
