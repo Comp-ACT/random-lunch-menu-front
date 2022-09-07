@@ -1,9 +1,13 @@
 // 가게 추가 mock api
-export async function addRestaurantAPI(request) {
-  const result = new Promise((resolve) => {
+import { RestaurantType, RoomType } from '../types';
+
+export async function addRestaurantAPI(
+  request: string,
+): Promise<RestaurantType> {
+  const result = new Promise<RestaurantType>(resolve => {
     const time = Math.random() * 2000 + 200;
     setTimeout(() => {
-      const response = {
+      const response: RestaurantType = {
         id: Math.random(),
         restaurantName: request,
         agreeCount: Math.ceil(Math.random() * 10),
@@ -17,13 +21,14 @@ export async function addRestaurantAPI(request) {
 }
 
 // 방 추가 mock api
-export async function addRoomApi(request) {
-  const result = new Promise((resolve) => {
+export async function addRoomApi(request: string): Promise<RoomType> {
+  const result = new Promise<RoomType>(resolve => {
     const time = Math.random() * 2000 + 200;
     setTimeout(() => {
-      const response = {
+      const response: RoomType = {
         id: Math.random(),
-        roomName: request.roomName,
+        roomName: request,
+        restaurants: [],
       };
       resolve(response);
     }, time);

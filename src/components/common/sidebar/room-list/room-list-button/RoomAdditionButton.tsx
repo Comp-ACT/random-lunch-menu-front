@@ -52,10 +52,7 @@ function RoomAdditionButton({ addRoomList }: Props) {
 
               setIsLoading(true);
 
-              addRoomApi({
-                id: Math.random(),
-                roomName: name,
-              }).then(response => {
+              addRoomApi(name).then(response => {
                 addRoomList(response);
                 setIsLoading(false);
               });
