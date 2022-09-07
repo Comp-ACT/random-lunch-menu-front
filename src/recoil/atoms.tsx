@@ -1,16 +1,35 @@
-import {atom} from 'recoil';
-import {RoomType} from "../types";
+import { atom, atomFamily, selector } from 'recoil';
+import { RoomType } from '../types';
 
-export const roomListAtoms = atom<Array<RoomType>>({
-  key: 'roomListAtoms',
+export const roomIdListAtoms = atom<Array<number>>({
+  key: 'roomIdListAtoms',
   default: [],
 });
 
-export const selectedRoomAtoms = atom<RoomType>({
-  key: 'selectedRoomAtoms',
-  default: {
-    id: -1,
-    roomName: '',
-    restaurants: []
-  }
+export const RoomAtoms = atomFamily<RoomType, number>({
+  key: 'roomListAtoms',
+  default: id => {
+    return {
+      id: -1,
+      roomName: '',
+      restaurants: [],
+    } as RoomType;
+  },
+});
+
+export const selectedRoomIdAtoms = atom<number>({
+  key: 'selectedRoomIdAtoms',
+  default: -1,
+});
+
+export const selectedRoomSelector = selector<RoomType>({
+  key: 'selectedRoomSelector',
+  get: ({ get }) => {
+    const selectedRoomId = get(selectedRoomIdAtoms);
+
+    return get(RoomAtoms(selectedRoomId));
+  },
+  set: ({ set }, newValue) => {
+    set(RoomAtoms((newValue as RoomType).id), newValue);
+  },
 });
