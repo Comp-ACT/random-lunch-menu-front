@@ -3,12 +3,14 @@ import Room from './room/Room';
 import RoomAdditionButton from './room-list-button/RoomAdditionButton';
 import useRoomList from '../../../../hooks/useRoomList';
 import { RoomType } from '../../../../types';
+import { useRecoilValue } from 'recoil';
+import { RoomAtoms } from '../../../../recoil/atoms';
 
 function RoomList() {
-  const [roomList, addRoomList] = useRoomList();
-  const rooms = (roomList as Array<RoomType>).map(room => (
-    <Room key={room.id} room={room} />
-  ));
+  const [roomIdList, addRoomList] = useRoomList();
+  const rooms = (roomIdList as Array<number>).map(roomId => {
+    return <Room key={roomId} roomId={roomId} />;
+  });
   return (
     <div
       css={css({
