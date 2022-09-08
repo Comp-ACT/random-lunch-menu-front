@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: ['eslint:recommended', 'airbnb', 'airbnb-typescript'],
   parserOptions: {
-    project: './tsconfig.json'
+    project: './tsconfig.json',
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -15,5 +15,6 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'import/prefer-default-export': 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
 };
