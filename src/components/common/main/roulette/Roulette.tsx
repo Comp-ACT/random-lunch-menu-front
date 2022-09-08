@@ -33,15 +33,29 @@ function Roulette() {
               },
             ];
           }
-          console.log(result);
           return result;
         })
         .map(it => {
-          return <span>{it.restaurantName}</span>;
+          return (
+            <span
+              css={css({
+                textAlign: 'center',
+                fontSize: 70,
+                minHeight: 100,
+                width: 400,
+                marginBottom: 10,
+                borderStyle: 'solid',
+                overflow: 'auto',
+                whiteSpace: 'nowrap',
+                boxSizing: 'border-box',
+              })}
+            >
+              {it.restaurantName}
+            </span>
+          );
         }),
     );
-    console.log(rouletteRows);
-  }, [rouletteRows, selectedRoom.id, selectedRoom.restaurants]);
+  }, [selectedRoom]);
 
   return (
     <div css={css({ height: '60%' })}>
@@ -49,15 +63,16 @@ function Roulette() {
         css={css({
           display: 'flex',
           flexDirection: 'column',
-          textAlign: 'center',
           width: 400,
-          height: 400,
+          height: 100,
+          marginTop: 200,
+          overflow: 'scroll',
         })}
       >
         {rouletteRows}
       </div>
       <div
-        css={css({ display: 'flex', justifyContent: 'center', marginTop: 100 })}
+        css={css({ display: 'flex', justifyContent: 'center', marginTop: 200 })}
       >
         <button>submit</button>
       </div>
