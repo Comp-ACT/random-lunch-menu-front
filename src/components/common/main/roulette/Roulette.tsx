@@ -13,6 +13,7 @@ type rouletteRestaurant = {
 function Roulette() {
   const selectedRoom = useRecoilValue(selectedRoomSelector);
   const [rouletteRows, setRouletteRows] = useState<EmotionJSX.Element[]>([]);
+  const [isRouletteSpinning, setIsRouletteSpinning] = useState<boolean>(false);
 
   useEffect(() => {
     setRouletteRows(
@@ -39,15 +40,22 @@ function Roulette() {
           return (
             <span
               css={css({
+                '--index': -rouletteRows.length + 1,
                 textAlign: 'center',
                 fontSize: 70,
                 minHeight: 100,
                 width: 400,
-                marginBottom: 10,
                 borderStyle: 'solid',
-                overflow: 'auto',
+                overflow: 'scroll',
                 whiteSpace: 'nowrap',
                 boxSizing: 'border-box',
+                '@keyframes scroll': {
+                  to: { transform: 'translateY(calc(var(--index) * 100%))' },
+                },
+                animation: isRouletteSpinning ? 'scroll 0.5s linear 10' : '',
+                '::-webkit-scrollbar': {
+                  display: 'none',
+                },
               })}
             >
               {it.restaurantName}
@@ -55,7 +63,7 @@ function Roulette() {
           );
         }),
     );
-  }, [selectedRoom]);
+  }, [selectedRoom, isRouletteSpinning]);
 
   return (
     <div css={css({ height: '60%' })}>
@@ -66,7 +74,7 @@ function Roulette() {
           width: 400,
           height: 100,
           marginTop: 200,
-          overflow: 'scroll',
+          overflow: 'hidden',
         })}
       >
         {rouletteRows}
@@ -74,7 +82,13 @@ function Roulette() {
       <div
         css={css({ display: 'flex', justifyContent: 'center', marginTop: 200 })}
       >
-        <button>submit</button>
+        <button
+          onClick={() => {
+            setIsRouletteSpinning(!isRouletteSpinning);
+          }}
+        >
+          submit
+        </button>
       </div>
     </div>
   );
