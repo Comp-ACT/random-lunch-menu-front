@@ -154,6 +154,15 @@ function Roulette() {
         css={css({ display: 'flex', justifyContent: 'center', marginTop: 200 })}
       >
         <button
+          css={css({
+            width: 200,
+            height: 50,
+            fontSize: 24,
+            transition: '0.3s',
+            '&:hover': {
+              translate: '0% -15%',
+            },
+          })}
           onClick={() => {
             setIsRouletteSpinning(true);
 
