@@ -5,7 +5,7 @@ export async function addRestaurantAPI(
   request: string,
 ): Promise<RestaurantType> {
   const result = new Promise<RestaurantType>(resolve => {
-    const time = Math.random() * 2000 + 200;
+    const time = Math.random() * 500 + 200;
     setTimeout(() => {
       const response: RestaurantType = {
         id: Math.random(),
@@ -23,7 +23,7 @@ export async function addRestaurantAPI(
 // 방 추가 mock api
 export async function addRoomApi(request: string): Promise<RoomType> {
   const result = new Promise<RoomType>(resolve => {
-    const time = Math.random() * 2000 + 200;
+    const time = Math.random() * 500 + 200;
     setTimeout(() => {
       const response: RoomType = {
         id: Math.random(),
