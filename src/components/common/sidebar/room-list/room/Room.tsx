@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import Colors from '../../../../../assets/colors';
 import { RoomAtoms, selectedRoomIdAtoms } from '../../../../../recoil/atoms';
 
@@ -8,7 +8,8 @@ type Props = {
 };
 
 function Room({ roomId }: Props) {
-  const setSelectedRoomId = useSetRecoilState(selectedRoomIdAtoms);
+  const [selectedRoomId, setSelectedRoomId] =
+    useRecoilState(selectedRoomIdAtoms);
   const room = useRecoilValue(RoomAtoms(roomId));
 
   return (
@@ -26,6 +27,8 @@ function Room({ roomId }: Props) {
         paddingRight: 10,
         paddingLeft: 10,
         minHeight: 90,
+        background:
+          selectedRoomId == room.id ? Colors.LIGHTCORAL : 'transparent',
         borderStyle: 'solid',
         borderWidth: 2,
         borderColor: Colors.CORAL,
