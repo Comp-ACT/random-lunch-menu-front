@@ -6,6 +6,8 @@ import HeaderText from '../header-text/HeaderText';
 import { selectedRoomSelector } from '../../../../recoil/atoms';
 import { useState } from 'react';
 import Modal from '../../dialog/Modal';
+import PersonDialog from '../dialog/PersonDialog';
+import HamburgerDialog from '../dialog/HamburgerDialog';
 
 function RoomConfigHeader() {
   const [personDialogFlag, setPersonDialogFlag] = useState<boolean>(false);
@@ -53,7 +55,7 @@ function RoomConfigHeader() {
             setPersonDialogFlag(false);
           }}
         >
-          <div></div>
+          <PersonDialog />
         </Modal>
       )}
       {hamburgerDialogFlag && (
@@ -62,7 +64,7 @@ function RoomConfigHeader() {
             setHamburgerDialogFlag(false);
           }}
         >
-          <div></div>
+          <HamburgerDialog />
         </Modal>
       )}
     </div>
