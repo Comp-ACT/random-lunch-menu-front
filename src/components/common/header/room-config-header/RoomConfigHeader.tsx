@@ -22,6 +22,7 @@ function RoomConfigHeader() {
       />
       <div css={css({ width: 20 })} />
       <Person size={iconSize} />
+      <div css={css({ width: 20 })} />
       <Hamburger size={iconSize} />
     </div>
   );
