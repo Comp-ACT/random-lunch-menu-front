@@ -29,7 +29,7 @@ function Room({ roomId }: Props) {
         paddingLeft: 10,
         minHeight: 90,
         background:
-          selectedRoomId == room.id ? Colors.LIGHTCORAL : 'transparent',
+          selectedRoomId === room.id ? Colors.LIGHTCORAL : 'transparent',
         borderStyle: 'solid',
         borderWidth: 2,
         borderColor: Colors.CORAL,
