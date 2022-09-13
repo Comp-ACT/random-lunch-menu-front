@@ -17,7 +17,7 @@ function RoomConfigHeader() {
     >
       <HeaderText
         text={selectedRoom.roomName}
-        fontSize={24}
+        fontSize={32}
         fontWeight="bold"
       />
       <div css={css({ width: 20 })} />

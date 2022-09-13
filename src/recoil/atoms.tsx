@@ -11,7 +11,7 @@ export const RoomAtoms = atomFamily<RoomType, number>({
   default: id => {
     return {
       id: -1,
-      roomName: '',
+      roomName: '선택된 방이 없습니다.',
       restaurants: [],
     } as RoomType;
   },
