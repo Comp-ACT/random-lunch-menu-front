@@ -13,6 +13,7 @@ function HeaderText({ text, fontSize = 12, fontWeight = 'bold' }: Props) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        marginRight: 20,
         fontSize,
         fontWeight,
       })}

@@ -18,6 +18,7 @@ function Room({ roomId }: Props) {
         setSelectedRoomId(roomId);
       }}
       css={css({
+        cursor: 'pointer',
         display: 'flex',
         flexDirection: 'column',
         textAlign: 'center',

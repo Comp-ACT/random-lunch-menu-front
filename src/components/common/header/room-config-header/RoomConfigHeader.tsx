@@ -20,10 +20,22 @@ function RoomConfigHeader() {
         fontSize={32}
         fontWeight="bold"
       />
-      <div css={css({ width: 20 })} />
-      <Person size={iconSize} />
-      <div css={css({ width: 20 })} />
-      <Hamburger size={iconSize} />
+      <div
+        css={css({
+          cursor: 'pointer',
+          marginRight: 20,
+        })}
+      >
+        <Person size={iconSize} />
+      </div>
+      <div
+        css={css({
+          cursor: 'pointer',
+          marginRight: 20,
+        })}
+      >
+        <Hamburger size={iconSize} />
+      </div>
     </div>
   );
 }

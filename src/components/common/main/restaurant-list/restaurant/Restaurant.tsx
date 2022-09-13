@@ -3,23 +3,21 @@ import { css } from '@emotion/react';
 import Colors from '../../../../../assets/colors';
 import RestaurantInformationDialog from '../dialog/RestaurantInformationDialog';
 import Modal from '../../../dialog/Modal';
-import {RestaurantType} from "../../../../../types";
+import { RestaurantType } from '../../../../../types';
 
 type Props = {
   restaurant: RestaurantType;
-}
+};
 
 function Restaurant({ restaurant }: Props) {
   const [isClicked, setIsClicked] = useState(false);
   return (
     <div>
-      {
-          isClicked && (
-          <Modal closeModal={() => setIsClicked(false)}>
-            <RestaurantInformationDialog restaurant={restaurant} />
-          </Modal>
-          )
-      }
+      {isClicked && (
+        <Modal closeModal={() => setIsClicked(false)}>
+          <RestaurantInformationDialog restaurant={restaurant} />
+        </Modal>
+      )}
       <div
         key={restaurant.restaurantName}
         css={css({
@@ -38,6 +36,7 @@ function Restaurant({ restaurant }: Props) {
             setIsClicked(true);
           }}
           css={css({
+            cursor: 'pointer',
             display: 'flex',
             flexDirection: 'column',
             overflow: 'auto',
