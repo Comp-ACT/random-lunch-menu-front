@@ -1,6 +1,15 @@
-function Person() {
+type Props = {
+  size: number;
+};
+
+function Person({ size }: Props) {
   return (
-    <svg width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <g>
         <g>
           <rect width="24" height="24" opacity="0" />

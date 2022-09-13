@@ -7,6 +7,7 @@ import { selectedRoomSelector } from '../../../../recoil/atoms';
 
 function RoomConfigHeader() {
   const selectedRoom = useRecoilValue(selectedRoomSelector);
+  const iconSize = 48;
   return (
     <div
       css={css({
@@ -20,8 +21,8 @@ function RoomConfigHeader() {
         fontWeight="bold"
       />
       <div css={css({ width: 20 })} />
-      <Person />
-      <Hamburger />
+      <Person size={iconSize} />
+      <Hamburger size={iconSize} />
     </div>
   );
 }
