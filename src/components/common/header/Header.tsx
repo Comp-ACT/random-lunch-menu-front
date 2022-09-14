@@ -4,9 +4,10 @@ import HeaderText from './header-text/HeaderText';
 
 function Header() {
   return (
-    <div css={css({
-      display: 'flex',
-    })}
+    <div
+      css={css({
+        display: 'flex',
+      })}
     >
       <div
         css={css({
@@ -15,12 +16,25 @@ function Header() {
           width: '80%',
         })}
       >
-        <HeaderText text="점메추" fontSize={32} fontWeight="bold" />
-        <div>
+        <HeaderText text="점메추" fontSize={48} fontWeight="bold" />
+        <div
+          css={css({
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            marginRight: 20,
+          })}
+        >
           <RoomConfigHeader />
         </div>
       </div>
-      <div css={css({ display: 'flex', flexDirection: 'row-reverse', width: '20%' })}>
+      <div
+        css={css({
+          display: 'flex',
+          flexDirection: 'row-reverse',
+          width: '20%',
+        })}
+      >
         <HeaderText text="사용자 정보" fontSize={24} fontWeight="none" />
       </div>
     </div>

@@ -21,6 +21,7 @@ function RoomAdditionButton({ addRoomList }: Props) {
           setShowRoomAdditionDialog(true);
         }}
         css={css({
+          cursor: 'pointer',
           display: 'flex',
           flexDirection: 'column',
           textAlign: 'center',

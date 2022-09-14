@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { css } from '@emotion/react';
 import { useRecoilValue } from 'recoil';
 import { selectedRoomSelector } from '../../../../recoil/atoms';
@@ -12,6 +13,7 @@ type rouletteRestaurant = {
 
 function Roulette() {
   const selectedRoom = useRecoilValue(selectedRoomSelector);
+  const [randomIndex, setRandomIndex] = useState<number>(0);
   const [rouletteRows, setRouletteRows] = useState<EmotionJSX.Element[]>([]);
   const [isRouletteSpinning, setIsRouletteSpinning] = useState<boolean>(false);
 
@@ -52,31 +54,13 @@ function Roulette() {
 
   function getRandomIndex(): number {
     return -Math.floor(
-      Math.random() *
-        selectedRoom.restaurants.flatMap(restaurant => {
-          let result: Array<rouletteRestaurant> = [];
-          for (
-            let i = 0;
-            i < restaurant.agreeCount - restaurant.disagreeCount;
-            i++
-          ) {
-            result = [
-              ...result,
-              {
-                roomId: selectedRoom.id,
-                restaurantId: restaurant.id,
-                restaurantName: restaurant.restaurantName,
-              },
-            ];
-          }
-          return result;
-        }).length,
+      Math.random() * getRouletteRowsFromSelectedRoom().length,
     );
   }
 
   function setRandomRouletteIndex() {
     stoppedRouletteRowsStyle = css({
-      '--index': getRandomIndex(),
+      '--index': randomIndex,
       textAlign: 'center',
       fontSize: 70,
       minHeight: 100,
@@ -128,9 +112,13 @@ function Roulette() {
   }
 
   useEffect(() => {
-    setRandomRouletteIndex();
+    setRandomIndex(getRandomIndex());
     setRouletteRows(getRouletteRowsFromSelectedRoom());
   }, [selectedRoom, isRouletteSpinning]);
+
+  useEffect(() => {
+    setRandomRouletteIndex();
+  }, [randomIndex]);
 
   useEffect(() => {
     setIsRouletteSpinning(false);
@@ -140,12 +128,21 @@ function Roulette() {
     <div css={css({ height: '60%' })}>
       <div
         css={css({
+          textAlign: 'center',
+          fontSize: 32,
+        })}
+      >
+        가게 개수: {rouletteRows.length}
+      </div>
+      <div
+        css={css({
           display: 'flex',
           flexDirection: 'column',
           width: 400,
           height: 100,
-          marginTop: 200,
+          marginTop: 100,
           overflow: 'hidden',
+          borderStyle: 'solid',
         })}
       >
         {rouletteRows}

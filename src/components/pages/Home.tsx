@@ -15,29 +15,32 @@ function Home() {
         background: Colors.OLDLACE,
       })}
     >
-      <div css={css({
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-        maxWidth: window.outerWidth,
-        width: window.outerWidth * 0.8,
-        minWidth: 1130,
-      })}
-      >
-        <div css={css({
+      <div
+        css={css({
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
-          minHeight: '8%',
-          maxHeight: '8%',
+          height: '100%',
+          maxWidth: window.outerWidth,
+          width: window.outerWidth * 0.8,
+          minWidth: 1130,
         })}
+      >
+        <div
+          css={css({
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            minHeight: '12%',
+            maxHeight: '12%',
+          })}
         >
           <Header />
         </div>
-        <div css={css({
-          display: 'flex',
-          minHeight: '92%',
-        })}
+        <div
+          css={css({
+            display: 'flex',
+            minHeight: '88%',
+          })}
         >
           <div css={css({ width: '80%' })}>
             <Main />
