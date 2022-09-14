@@ -113,11 +113,11 @@ function Roulette() {
 
   useEffect(() => {
     setRandomIndex(getRandomIndex());
-    setRouletteRows(getRouletteRowsFromSelectedRoom());
   }, [selectedRoom, isRouletteSpinning]);
 
   useEffect(() => {
     setRandomRouletteIndex();
+    setRouletteRows(getRouletteRowsFromSelectedRoom());
   }, [randomIndex]);
 
   useEffect(() => {
