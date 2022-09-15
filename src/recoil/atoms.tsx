@@ -1,5 +1,6 @@
 import { atom, atomFamily, selector } from 'recoil';
 import { RoomType } from '../types';
+import { SELECTED_ROOM_ID } from '../assets/resources/localStorage';
 
 export const roomIdListAtoms = atom<Array<number>>({
   key: 'roomIdListAtoms',
@@ -8,7 +9,7 @@ export const roomIdListAtoms = atom<Array<number>>({
 
 export const RoomAtoms = atomFamily<RoomType, number>({
   key: 'roomListAtoms',
-  default: id => {
+  default: () => {
     return {
       id: -1,
       roomName: '선택된 방이 없습니다.',
@@ -20,6 +21,14 @@ export const RoomAtoms = atomFamily<RoomType, number>({
 export const selectedRoomIdAtoms = atom<number>({
   key: 'selectedRoomIdAtoms',
   default: -1,
+  effects: [
+    ({ onSet }) => {
+      onSet(id => {
+        console.log(id);
+        localStorage[SELECTED_ROOM_ID] = id;
+      });
+    },
+  ],
 });
 
 export const selectedRoomSelector = selector<RoomType>({
