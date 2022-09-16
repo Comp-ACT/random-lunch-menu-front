@@ -4,18 +4,26 @@ import SideBar from '../common/sidebar/SideBar';
 import Header from '../common/header/Header';
 import Colors from '../../assets/colors';
 import { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { selectedRoomIdAtoms } from '../../recoil/atoms';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { selectedRoomIdAtoms, selectedRoomSelector } from '../../recoil/atoms';
 import { SELECTED_ROOM_ID } from '../../assets/resources/localStorage';
 
 function Home() {
   const setSelectedRoomId = useSetRecoilState(selectedRoomIdAtoms);
-  useEffect(() => {
+  const selectedRoom = useRecoilValue(selectedRoomSelector);
+
+  function initializeSelectedRoomInformation() {
     if (localStorage[SELECTED_ROOM_ID]) {
       setSelectedRoomId(localStorage[SELECTED_ROOM_ID]);
+
+      if (selectedRoom.id === -1) {
+        localStorage.removeItem(SELECTED_ROOM_ID);
+        setSelectedRoomId(-1);
+      }
     }
-    console.log('test');
-  }, []);
+  }
+
+  useEffect(initializeSelectedRoomInformation, []);
   return (
     <div
       css={css({
