@@ -42,3 +42,8 @@ export const selectedRoomSelector = selector<RoomType>({
     set(RoomAtoms((newValue as RoomType).id), newValue);
   },
 });
+
+export const accessTokenAtoms = atom<string>({
+  key: 'accessTokenAtoms',
+  default: '',
+});
