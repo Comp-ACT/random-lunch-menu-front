@@ -13,6 +13,7 @@
     "@types/node": "^18.7.14",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
+    "axios": "^0.27.2",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

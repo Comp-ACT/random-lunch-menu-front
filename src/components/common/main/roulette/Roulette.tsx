@@ -16,6 +16,7 @@ function Roulette() {
   const [randomIndex, setRandomIndex] = useState<number>(0);
   const [rouletteRows, setRouletteRows] = useState<EmotionJSX.Element[]>([]);
   const [isRouletteSpinning, setIsRouletteSpinning] = useState<boolean>(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
 
   const spinningRouletteRowsStyle = css({
     '--index': -rouletteRows.length + 1,
@@ -162,12 +163,16 @@ function Roulette() {
           })}
           onClick={() => {
             setIsRouletteSpinning(true);
+            setIsButtonDisabled(true);
 
             setTimeout(() => {
               setIsRouletteSpinning(false);
+              setTimeout(() => {
+                setIsButtonDisabled(false);
+              }, 1000);
             }, 3000);
           }}
-          disabled={isRouletteSpinning}
+          disabled={isButtonDisabled}
         >
           추첨하기
         </button>
