@@ -1,11 +1,11 @@
-import {ReactNode, useEffect} from 'react';
+import { ReactNode, useEffect } from 'react';
 import { css } from '@emotion/react';
 import Colors from '../../../assets/colors';
 
 type Props = {
   closeModal: () => void;
   children: ReactNode;
-}
+};
 
 function Modal({ closeModal, children }: Props) {
   useEffect(() => {
@@ -20,6 +20,7 @@ function Modal({ closeModal, children }: Props) {
   return (
     <div
       css={css({
+        zIndex: 1000,
         position: 'fixed',
         top: 0,
         left: 0,
@@ -31,15 +32,16 @@ function Modal({ closeModal, children }: Props) {
         alignItems: 'center',
       })}
     >
-      <div css={css({
-        position: 'absolute',
-        width: 600,
-        height: 600,
-        padding: 40,
-        textAlign: 'center',
-        background: 'white',
-        borderRadius: 10,
-      })}
+      <div
+        css={css({
+          position: 'absolute',
+          width: 600,
+          height: 600,
+          padding: 40,
+          textAlign: 'center',
+          background: 'white',
+          borderRadius: 10,
+        })}
       >
         <button
           css={css({

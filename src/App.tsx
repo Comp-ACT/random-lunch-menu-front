@@ -5,22 +5,17 @@ import Home from './components/pages/Home';
 function App() {
   return (
     <RecoilRoot>
-      <Global styles={css`
-      *{
-        font-family: 'DalseoHealing';
-      }
-      
-      @font-face {
-      font-family: 'DalseoHealing';
-      font-weight: 700;
-      font-style: normal;
-      src: url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingBold.eot');
-      src: url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingBold.eot?#iefix') format('embedded-opentype'),
-           url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingBold.woff2') format('woff2'),
-           url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingBold.woff') format('woff'),
-           url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingBold.ttf') format("truetype");
-      font-display: swap;
-      }
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap"
+        rel="stylesheet"
+      />
+      <Global
+        styles={css`
+          * {
+            font-family: 'Nanum Gothic', sans-serif;
+          }
         `}
       />
       <Home />
